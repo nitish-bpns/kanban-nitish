@@ -1,0 +1,15 @@
+.group-selector,
+.sort-selector {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+label {
+  margin-right: 8px;
+}
+
+select {
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

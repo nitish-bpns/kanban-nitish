@@ -1,0 +1,66 @@
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardId {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.userInitial {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.cardTitle {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+}
+
+.cardTags {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tagPill {
+  background: #f3f4f6;
+  color: #333;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  white-space: nowrap;
+}
