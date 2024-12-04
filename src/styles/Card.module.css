@@ -3,7 +3,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -26,10 +26,10 @@
   color: #666;
 }
 
-.userAvatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+/* Wrapper to position the availability dot relative to the initials */
+.userInitialWrapper {
+  position: relative;
+  display: inline-block;
 }
 
 .userInitial {
@@ -42,6 +42,20 @@
   color: #fff;
   border-radius: 50%;
   font-weight: bold;
+  font-size: 14px;
+  position: relative;
+}
+
+/* New style for the availability dot */
+.availabilityDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Adds a white border around the dot */
+  background: green; /* Default color (can be changed dynamically) */
 }
 
 .cardTitle {
@@ -57,10 +71,36 @@
 }
 
 .tagPill {
-  background: #f3f4f6;
+  /* background: #f3f4f6; */
+  border: 1px #f3f4f6 solid;
   color: #333;
   font-size: 12px;
   padding: 4px 8px;
-  border-radius: 16px;
+  border-radius: 10px;
   white-space: nowrap;
+}
+.taskStatus {
+  padding: 0 4px 0 0;
+}
+.statusFeature {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.taskPriority {
+  /* background: #f3f4f6; */
+  /* color: #333; */
+  /* font-size: 12px; */
+  /* padding: 4px 4px; */
+  /* margin: 4px 4px;
+  border: 1px #f3f4f6 solid;
+  border-radius: 10px; */
+  /* border: #666 0.5px solid; */
+  /* border-radius: 2px; */
+}
+.priorityImg {
+  padding: 4px;
+  margin: 2px 4px -7px 0;
+  border: 1px #f3f4f6 solid;
+  border-radius: 6px;
 }

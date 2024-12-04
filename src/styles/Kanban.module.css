@@ -5,8 +5,9 @@
 .kanbanBoard {
   display: flex;
   gap: 16px;
-  padding: 16px;
+  padding: 16px 0px;
   overflow-x: auto;
+  background: #f8f9fa;
 }
 
 .display {
@@ -20,10 +21,9 @@
 .kanbanColumn {
   flex: 1;
   min-width: 300px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background: #ffffff;  */
+  /* border-radius: 8px;  */
+  padding: 8px;
 }
 
 .kanbanColumnHeader {
@@ -37,20 +37,36 @@
   font-size: 18px;
   color: #333;
   margin: 0;
+  display: flex;
+  align-items: center; /* Aligns items in a row */
 }
 
-.ticketCount {
-  font-size: 14px;
-  color: #666;
+.ticketCountNew {
+  font-size: 16px;
+  color: #838383;
+  margin: 0 0 0 12px;
+  font-weight: 500;
+  /* margin: 0 5px 0 10px; */
 }
-
+.ticketCount2 {
+  font-size: 16px;
+  color: #838383;
+  margin: 0 0 0 12px;
+  font-weight: 500;
+  margin: 0 5px 0 0;
+}
 .kanbanColumnCards {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
-/* // */
+.addTicket {
+  margin: 0 5px 0 0;
+}
+.menuTicket {
+  margin: 0 5px 0 5px;
+}
 
 /* Dropdown.css */
 
@@ -123,4 +139,72 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+}
+.priorityImg {
+  padding: 4px;
+  margin: 2px 4px -2px 0;
+  border-radius: 6px;
+}
+
+/* initials */
+
+.userInitialWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.userInitial {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd; /* Keeps existing default color, will change dynamically */
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+}
+
+/* Updated user name and header styling */
+.userHeaderWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Added gap between userInitial and userName */
+}
+
+.userName {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* availability dot */
+.availabilityDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: green; /* Default color can be changed dynamically */
+}
+
+@media screen and (max-width: 464px) {
+  .dropdownToggle {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .kanbanPage {
+    margin: 5% 5% 0 5%;
+  }
 }

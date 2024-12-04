@@ -5,22 +5,22 @@ import styles from "../styles/Kanban.module.css";
 
 const KanbanPage = () => {
   const [tickets, setTickets] = useState([]);
-  const [usersMap, setUsersMap] = useState({});
-  const [groupBy, setGroupBy] = useState("status");
-  const [sortBy, setSortBy] = useState("priority");
+  const [users, setUsers] = useState([]);
+  const [groupBy, setGroupBy] = useState(localStorage.getItem("groupBy") || "status");
+  const [sortBy, setSortBy] = useState(localStorage.getItem("sortBy") || "priority");
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null); // Reference for the dropdown container
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetchTickets();
         if (response && Array.isArray(response.tickets)) {
+          setUsers(response.users);
           const usersMap = response.users.reduce((map, user) => {
             map[user.id] = user.name;
             return map;
           }, {});
-          setUsersMap(usersMap);
 
           const enrichedTickets = response.tickets.map((ticket) => ({
             ...ticket,
@@ -39,7 +39,6 @@ const KanbanPage = () => {
     fetchData();
   }, []);
 
-  // Close dropdown on clicking outside
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -47,14 +46,20 @@ const KanbanPage = () => {
       }
     };
 
-    // Attach event listener
     document.addEventListener("mousedown", handleOutsideClick);
 
-    // Cleanup event listener on unmount
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("groupBy", groupBy);
+  }, [groupBy]);
+
+  useEffect(() => {
+    localStorage.setItem("sortBy", sortBy);
+  }, [sortBy]);
 
   return (
     <div className={styles.kanbanPage}>
@@ -64,18 +69,9 @@ const KanbanPage = () => {
             className={styles.dropdownToggle}
             onClick={() => setIsOpen(!isOpen)}
           >
-            <img
-              className={styles.displayImg}
-              src="/assets/Display.svg"
-              alt="display"
-            />
+            <img className={styles.displayImg} src="/assets/Display.svg" alt="display" />
             <div className={styles.displayText}>Display</div>
-
-            <img
-              className={styles.downImg}
-              src="/assets/down.svg"
-              alt="display"
-            />
+            <img className={styles.downImg} src="/assets/down.svg" alt="display" />
           </button>
           {isOpen && (
             <div className={styles.dropdownMenu}>
@@ -86,7 +82,7 @@ const KanbanPage = () => {
                     value={groupBy}
                     onChange={(e) => {
                       setGroupBy(e.target.value);
-                      setIsOpen(false); // Close dropdown on selection
+                      setIsOpen(false);
                     }}
                   >
                     <option value="status">Status</option>
@@ -102,7 +98,7 @@ const KanbanPage = () => {
                     value={sortBy}
                     onChange={(e) => {
                       setSortBy(e.target.value);
-                      setIsOpen(false); // Close dropdown on selection
+                      setIsOpen(false);
                     }}
                   >
                     <option value="priority">Priority</option>
@@ -114,7 +110,7 @@ const KanbanPage = () => {
           )}
         </div>
       </header>
-      <KanbanBoard tickets={tickets} groupBy={groupBy} sortBy={sortBy} />
+      <KanbanBoard tickets={tickets} groupBy={groupBy} sortBy={sortBy} users={users} />
     </div>
   );
 };
