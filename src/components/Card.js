@@ -7,8 +7,6 @@ const Card = ({ ticket, users }) => {
   const user = users.find((us) => us.name === assigned_user);
   const available = user.available;
 
-  const priorityMap = ["No Priority", "Low", "Medium", "High", "Urgent"];
-
   const getColorFromInitials = (name) => {
     const initials = name
       .split(" ")
