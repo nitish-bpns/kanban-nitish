@@ -6,8 +6,12 @@ import styles from "../styles/Kanban.module.css";
 const KanbanPage = () => {
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
-  const [groupBy, setGroupBy] = useState(localStorage.getItem("groupBy") || "status");
-  const [sortBy, setSortBy] = useState(localStorage.getItem("sortBy") || "priority");
+  const [groupBy, setGroupBy] = useState(
+    localStorage.getItem("groupBy") || "status"
+  );
+  const [sortBy, setSortBy] = useState(
+    localStorage.getItem("sortBy") || "priority"
+  );
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -69,9 +73,17 @@ const KanbanPage = () => {
             className={styles.dropdownToggle}
             onClick={() => setIsOpen(!isOpen)}
           >
-            <img className={styles.displayImg} src="/assets/Display.svg" alt="display" />
+            <img
+              className={styles.displayImg}
+              src="/assets/Display.svg"
+              alt="display"
+            />
             <div className={styles.displayText}>Display</div>
-            <img className={styles.downImg} src="/assets/down.svg" alt="display" />
+            <img
+              className={styles.downImg}
+              src="/assets/down.svg"
+              alt="display"
+            />
           </button>
           {isOpen && (
             <div className={styles.dropdownMenu}>
@@ -110,7 +122,12 @@ const KanbanPage = () => {
           )}
         </div>
       </header>
-      <KanbanBoard tickets={tickets} groupBy={groupBy} sortBy={sortBy} users={users} />
+      <KanbanBoard
+        tickets={tickets}
+        groupBy={groupBy}
+        sortBy={sortBy}
+        users={users}
+      />
     </div>
   );
 };

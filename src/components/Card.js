@@ -6,7 +6,6 @@ const Card = ({ ticket, users }) => {
 
   const user = users.find((us) => us.name === assigned_user);
   const available = user.available;
-//   console.log("ticket: ", ticket);
 
   const priorityMap = ["No Priority", "Low", "Medium", "High", "Urgent"];
 

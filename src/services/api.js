@@ -20,10 +20,9 @@ export const fetchTickets = async () => {
       throw new Error("Unexpected API response structure");
     }
 
-    console.log("Fetched API Data:", data); // Log the raw API response
     return data;
   } catch (error) {
     console.error("Failed to fetch tickets:", error.message);
-    throw error; // Optionally remove this if you want to handle the error in the caller
+    throw error; 
   }
 };

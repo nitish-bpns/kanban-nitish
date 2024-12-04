@@ -38,7 +38,7 @@
   color: #333;
   margin: 0;
   display: flex;
-  align-items: center; /* Aligns items in a row */
+  align-items: center;
 }
 
 .ticketCountNew {
@@ -159,7 +159,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ddd; /* Keeps existing default color, will change dynamically */
+  background: #ddd; 
   color: #fff;
   border-radius: 50%;
   font-weight: bold;
@@ -167,11 +167,10 @@
   position: relative;
 }
 
-/* Updated user name and header styling */
 .userHeaderWrapper {
   display: flex;
   align-items: center;
-  gap: 10px; /* Added gap between userInitial and userName */
+  gap: 10px; 
 }
 
 .userName {
@@ -180,7 +179,6 @@
   font-weight: 500;
 }
 
-/* availability dot */
 .availabilityDot {
   position: absolute;
   bottom: 0;
@@ -189,7 +187,7 @@
   height: 10px;
   border-radius: 50%;
   border: 2px solid #fff;
-  background: green; /* Default color can be changed dynamically */
+  background: green; 
 }
 
 @media screen and (max-width: 464px) {

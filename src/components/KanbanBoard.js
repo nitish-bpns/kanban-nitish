@@ -44,11 +44,7 @@ const sortTicketsByTitle = (tickets) => {
 
 const KanbanBoard = ({ tickets, groupBy, sortBy, users }) => {
   if (!Array.isArray(tickets) || tickets.length === 0) {
-    return (
-      <div>
-        No tickets available. Please add tickets or check your API response.
-      </div>
-    );
+    return <div>No tickets available. Kindly check your API response.</div>;
   }
 
   const groupedTickets = groupTickets(tickets, groupBy);

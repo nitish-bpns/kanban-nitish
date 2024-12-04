@@ -26,7 +26,6 @@
   color: #666;
 }
 
-/* Wrapper to position the availability dot relative to the initials */
 .userInitialWrapper {
   position: relative;
   display: inline-block;
@@ -46,7 +45,6 @@
   position: relative;
 }
 
-/* New style for the availability dot */
 .availabilityDot {
   position: absolute;
   bottom: 0;
@@ -54,8 +52,8 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2px solid #fff; /* Adds a white border around the dot */
-  background: green; /* Default color (can be changed dynamically) */
+  border: 2px solid #fff; 
+  background: green; 
 }
 
 .cardTitle {
